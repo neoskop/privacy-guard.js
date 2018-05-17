@@ -120,6 +120,8 @@ export default class PrivacyGuard {
 
     if (restoredLevel) {
       this.selectLevel(restoredLevel);
+    } else if (this.options.defaultLevel) {
+      this.selectLevel(this.options.defaultLevel);
     }
   }
 }
