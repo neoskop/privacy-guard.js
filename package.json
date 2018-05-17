@@ -1,6 +1,6 @@
 {
   "name": "@neoskop/privacy-guard.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "main": "dist/privacy-guard.umd.js",
@@ -10,9 +10,9 @@
   "author": "Philipp Siekmann <siekmann@neoskop.de>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/neoskop/privacy-guard.js"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "engines": {
     "node": ">=6.0.0"
   },
