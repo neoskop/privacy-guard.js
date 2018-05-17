@@ -82,23 +82,24 @@ export default class PrivacyGuard {
       return;
     }
 
-    if (typeof this.options.events.onLevelChanged === 'function') {
-      this.storeLevel(level);
-      this.options.events.onLevelChanged(level);
+    this.storeLevel(level);
 
-      if (this.layerElement) {
-        const settingElements = Array.from(this.layerElement.querySelectorAll('[data-level]'));
+    if (this.layerElement) {
+      const settingElements = Array.from(this.layerElement.querySelectorAll('[data-level]'));
 
-        if (settingElements) {
-          settingElements.forEach(el => {
-            if (el.getAttribute('data-level') === level) {
-              el.setAttribute('data-active', '');
-            } else {
-              el.removeAttribute('data-active');
-            }
-          });
-        }
+      if (settingElements) {
+        settingElements.forEach(el => {
+          if (el.getAttribute('data-level') === level) {
+            el.setAttribute('data-active', '');
+          } else {
+            el.removeAttribute('data-active');
+          }
+        });
       }
+    }
+
+    if (typeof this.options.events.onLevelChanged === 'function') {
+      this.options.events.onLevelChanged(level);
     }
   }
 
