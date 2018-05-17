@@ -8,6 +8,14 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
+
+  & [data-level] {
+    display: none;
+
+    &[data-active] {
+      display: block;
+    }
+  }
 }
 
 .privacy-layer--active {
@@ -19,12 +27,4 @@
   padding: 20px;
   width: 800px;
   max-width: 100%;
-
-  & [data-level] {
-    display: none;
-
-    &[data-active] {
-      display: block;
-    }
-  }
 }
