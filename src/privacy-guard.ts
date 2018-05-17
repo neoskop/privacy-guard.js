@@ -24,6 +24,9 @@ export default class PrivacyGuard {
   constructor(options?: PrivacyGuardOptions) {
     this.options = {
       cookieName: 'privacy-guard-level',
+      events: {
+        onLevelChanged: null
+      },
       layer: {
         className: 'privacy-layer',
         container: document.body,
