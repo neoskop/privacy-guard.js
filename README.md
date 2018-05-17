@@ -111,4 +111,4 @@ const guard = new PrivacyGuard();
 * `guard.init()`: Initialize the Privacy Guard. Adds the overlay to the DOM.
 * `guard.showLayer()`: Shows the overlay.
 * `guard.hideLayer()`: Hides the overlay.
-* `guard.selectLevel()`: Selects a privacy guard level.
+* `guard.selectLevel(level: string)`: Selects a privacy guard level.
