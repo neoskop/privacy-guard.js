@@ -42,11 +42,13 @@ export default class PrivacyGuard {
       if (!this.layerTemplate) {
         console.error('[Privacy Guard] No privacy layer template found.');
       } else {
-        this.layerElement = this.options.layer.container.appendChild(
-          this.layerTemplate.content.querySelector(
+        const layerContents =
+          (this.layerTemplate.content.querySelector(
             `.${this.options.layer.className}`
-          ) as HTMLElement
-        ) as HTMLElement;
+          ) as HTMLElement) ||
+          (this.layerTemplate.querySelector(`.${this.options.layer.className}`) as HTMLElement);
+
+        this.layerElement = this.options.layer.container.appendChild(layerContents) as HTMLElement;
       }
     }
 
