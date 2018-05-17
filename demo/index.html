@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <title>Privacy Guard Demo</title>
+  <link rel="stylesheet"
+        href="../dist/privacy-guard.es5.css">
+</head>
+
+<body>
+  <button type="button"
+          onClick="guard.showLayer()">Show Layer</button>
+
+  <template id="privacy-layer">
+    <div class="privacy-layer">
+      <div class="privacy-layer__inner">
+        <button onClick="guard.hideLayer()"
+                class="privacy-layer__close-button">
+          Schließen
+        </button>
+        <div class="privacy-layer__settings">
+          <h2>Levels</h2>
+          <button type="button"
+                  onClick="guard.selectLevel('basic')">Basic</button>
+          <button type="button"
+                  onClick="guard.selectLevel('analytics')">Analytics</button>
+          <button type="button"
+                  onClick="guard.selectLevel('targeting')">Targeting</button>
+          <div data-level="basic">
+            Active: Basic
+          </div>
+          <div data-level="analytics">
+            Active: Analytics
+          </div>
+          <div data-level="targeting">
+            Active: Targeting
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+
+</html>
