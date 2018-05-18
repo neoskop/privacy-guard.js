@@ -1,6 +1,6 @@
 {
   "name": "@neoskop/privacy-guard.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "keywords": [],
   "main": "dist/privacy-guard.umd.js",
