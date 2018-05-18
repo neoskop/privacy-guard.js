@@ -88,8 +88,12 @@ interface PrivacyGuardOptions {
     className?: string;
 
     // Container element the overlay gets appended to
-    // Defaults to document.body
+    // Defaults to: document.body
     container?: HTMLElement;
+
+    // Set to true, if you do not want the Privacy Guard to create the overlay
+    // Defaults to: false
+    disabled?: boolean;
 
     // The selector for the template element containing the overlay template
     // Defaults to: "#privacy-guard"

@@ -30,6 +30,7 @@ export default class PrivacyGuard {
       layer: {
         className: 'privacy-layer',
         container: document.body,
+        disabled: false,
         templateSelector: '#privacy-layer'
       },
       levels: ['basic', 'analytics', 'targeting'],
@@ -41,7 +42,7 @@ export default class PrivacyGuard {
   }
 
   public init() {
-    if (!this.layerElement) {
+    if (!this.options.layer.disabled && !this.layerElement) {
       if (!this.layerTemplate) {
         console.error('[Privacy Guard] No privacy layer template found.');
       } else {

@@ -7,6 +7,7 @@ export interface PrivacyGuardOptions {
   layer?: {
     className?: string;
     container?: HTMLElement;
+    disabled?: boolean;
     templateSelector?: string;
   };
   levels?: string[];
