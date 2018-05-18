@@ -37,8 +37,10 @@ export default class PrivacyGuard {
       ...options
     };
 
-    this.layerElement = this.options.layer.container.querySelector(this.options.layer.className);
-    this.layerTemplate = document.querySelector(this.options.layer.templateSelector);
+    if (!this.options.layer.disabled) {
+      this.layerElement = this.options.layer.container.querySelector(this.options.layer.className);
+      this.layerTemplate = document.querySelector(this.options.layer.templateSelector);
+    }
   }
 
   public init() {
