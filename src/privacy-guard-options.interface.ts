@@ -2,7 +2,7 @@ export interface PrivacyGuardOptions {
   cookieName?: string;
   defaultLevel?: string;
   events?: {
-    onLevelChanged?: (setting: string) => any;
+    onLevelChanged?: (level: string, previousLevel?: string) => any;
   };
   layer?: {
     className?: string;

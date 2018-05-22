@@ -80,6 +80,11 @@ export default class PrivacyGuard {
   }
 
   public selectLevel(level: string) {
+    const cookieMatch = document.cookie.match(
+      `(^|;)\\s*${this.options.cookieName}\\s*=\\s*([^;]+)`
+    );
+    const previousLevel = cookieMatch ? cookieMatch.pop() : null;
+
     if (this.options.levels.findIndex(s => s === level) === -1) {
       console.error(`[Privacy Guard] Could not find level "${level}".`);
       return;
@@ -102,7 +107,7 @@ export default class PrivacyGuard {
     }
 
     if (typeof this.options.events.onLevelChanged === 'function') {
-      this.options.events.onLevelChanged(level);
+      this.options.events.onLevelChanged(level, previousLevel);
     }
   }
 
