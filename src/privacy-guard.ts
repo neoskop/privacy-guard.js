@@ -87,6 +87,13 @@ export default class PrivacyGuard {
 
     if (this.options.levels.findIndex(s => s === level) === -1) {
       console.error(`[Privacy Guard] Could not find level "${level}".`);
+
+      if (this.options.defaultLevel !== undefined && this.options.defaultLevel !== null) {
+        this.selectLevel(this.options.defaultLevel);
+      } else {
+        this.selectLevel(this.options.levels[0]);
+      }
+
       return;
     }
 
