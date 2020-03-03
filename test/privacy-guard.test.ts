@@ -8,6 +8,7 @@ describe('PrivacyGuard', () => {
   let guard: PrivacyGuard;
 
   beforeEach(() => {
+    document.cookie = `privacy-guard-level=basic; expires=${new Date().toUTCString()}; path=/`;
     guard = new PrivacyGuard({
       events: {
         onLevelChanged: (level: string) => {
@@ -52,8 +53,8 @@ describe('PrivacyGuard', () => {
     const spy = jest.spyOn(guard.options.events, 'onLevelChanged');
 
     guard.init();
-    guard.selectLevel('basic');
-    expect(spy).toHaveBeenCalledTimes(1);
+    guard.selectLevel('analytics');
+    expect(spy).toHaveBeenCalledWith('analytics', null);
   });
 
   it('#selectLevel should try to store level', () => {
@@ -78,9 +79,18 @@ describe('PrivacyGuard', () => {
   it('#restoreLevel should read level from cookie', () => {
     const spy = jest.spyOn(guard, 'selectLevel');
 
-    guard.storeLevel('basic');
+    guard.storeLevel('analytics');
     guard.restoreLevel();
 
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith('analytics');
+  });
+
+  it('#restoreLevel should set default level without cookie', () => {
+    const spy = jest.spyOn(guard, 'selectLevel');
+
+    guard.options.defaultLevel = 'basic';
+    guard.restoreLevel();
+
+    expect(spy).toHaveBeenCalledWith('basic');
   });
 });
