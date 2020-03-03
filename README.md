@@ -15,7 +15,7 @@ Have a look at the demo directory for a complete example.
 #### 1. Load the base styles
 
 ```html
-<link rel="stylesheet" href="privacy-guard.es5.css">
+<link rel="stylesheet" href="privacy-guard.es5.css" />
 ```
 
 #### 2. Define the overlay template
@@ -24,18 +24,14 @@ Have a look at the demo directory for a complete example.
 <template id="privacy-layer">
   <div class="privacy-layer">
     <div class="privacy-layer__inner">
-      <button onClick="guard.hideLayer()"
-              class="privacy-layer__close-button">
+      <button onClick="guard.hideLayer()" class="privacy-layer__close-button">
         Schließen
       </button>
       <div class="privacy-layer__settings">
         <h2>Levels</h2>
-        <button type="button"
-                onClick="guard.selectLevel('basic')">Basic</button>
-        <button type="button"
-                onClick="guard.selectLevel('analytics')">Analytics</button>
-        <button type="button"
-                onClick="guard.selectLevel('targeting')">Targeting</button>
+        <button type="button" onClick="guard.selectLevel('basic')">Basic</button>
+        <button type="button" onClick="guard.selectLevel('analytics')">Analytics</button>
+        <button type="button" onClick="guard.selectLevel('targeting')">Targeting</button>
         <div data-level="basic">
           Active: Basic
         </div>
@@ -64,7 +60,7 @@ guard.init();
 
 ## API
 
-```javascript
+```typescript
 PrivacyGuard(options?: PrivacyGuardOptions)
 ```
 
@@ -112,7 +108,7 @@ interface PrivacyGuardOptions {
 const guard = new PrivacyGuard();
 ```
 
-* `guard.init()`: Initialize the Privacy Guard. Adds the overlay to the DOM.
-* `guard.showLayer()`: Shows the overlay.
-* `guard.hideLayer()`: Hides the overlay.
-* `guard.selectLevel(level: string)`: Selects a privacy guard level.
+- `guard.init()`: Initialize the Privacy Guard. Adds the overlay to the DOM.
+- `guard.showLayer()`: Shows the overlay.
+- `guard.hideLayer()`: Hides the overlay.
+- `guard.selectLevel(level: string)`: Selects a privacy guard level.
